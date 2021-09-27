@@ -1,0 +1,15 @@
+# http://humanstxt.org/
+
+/* ----- Team ----- */
+Developer:    John Doe
+Location:     City, Country
+twitter:      @twitter_alias
+Website:      https://***
+
+
+/* ----- Site ----- */
+Last Updated: 2021/04/28
+Standards:    HTML5, CSS3, JavaScript
+Components:   Rails, jQuery, bootstrap
+URL:          https://*****
+Launched:     2021

@@ -1,0 +1,19 @@
+// form { }
+
+textarea {
+  @apply font-sans;
+}
+
+label {
+  & abbr[title="required"] {
+    @apply ml-1 text-red-300;
+  }
+}
+
+.toggle-checkbox:checked {
+  @apply right-0 border-blue-400 right-0;
+
+  &+.toggle-label {
+    @apply bg-blue-300;
+  }
+}

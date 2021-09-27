@@ -1,0 +1,16 @@
+# master: https://github.com/mperham/sidekiq/wiki/Advanced-Options
+# sample: http://runnable.com/UpP57epVxuNGAACz/how-to-setup-multiple-concurrent-queues-in-sidekiq-for-redis
+---
+:verbose: false
+:pidfile: ./tmp/pids/sidekiq.pid
+:concurrency: <%= ENV.fetch("RAILS_MAX_THREADS", 5).to_i %>
+:timeout: <%= ENV.fetch("JOB_TIMEOUT", 120).to_i %>
+# :max_retries: <%= ENV.fetch("JOB_RETRY_ATTEMPTS", 5).to_i %>
+
+:queues:
+  - [critical, 10]      # Something that needs to happen NOW!
+  - [default, 6]
+  - [patients, 5]       # When running background jobs to query cerner
+  - [batch, 4]          # For batch jobs such as bulk updating, or inserting
+  - [mailer, 2]         # For inserting AppMail entries for various actions
+  - [low, 1]

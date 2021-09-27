@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es6", "dom"],
+    "module": "es2020",
+    "moduleResolution": "node",
+    "isolatedModules": true,    // Warn of unsupported module
+    "skipLibCheck": true,       // skip checking libs in node_modules
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*", "app/javascript/*"]
+    },
+    "sourceMap": true,
+    // "target": "es5",
+    "noEmit": true
+  },
+  "include": ["app/javascript/**/*.ts", "app/javascript/**/*.tsx", "app/javascript/application.js", "vite.config.ts"],
+  "exclude": ["**/*.spec.ts",
+              "app/assets/builds",
+              "./node_modules",
+              "node_modules/*",
+              "vendor",
+              "public"],
+  "compileOnSave": false
+}

@@ -1,0 +1,8 @@
+web: rails server -p 3000
+# js_bundle: yarn build:bundle --watch
+redis: redis-server /usr/local/etc/redis.conf
+# css: yarn build:css --watch
+
+# "build": "esbuild app/packs/entrypoints/*.js --bundle --minify --target=es6 --outdir=app/assets/builds",
+# swc ./app/javascript/bundled.js -o ./app/assets/builds/application.js --config-file ./.swcrc
+vite: vite dev

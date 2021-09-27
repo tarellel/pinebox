@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+# https://github.com/steakknife/spirit_hands
+begin
+  require 'spirit_hands'
+rescue LoadError => e
+  raise unless e.message =~ /.*such file.*spirit_hands/
+  puts 'no SpiritHands'
+end

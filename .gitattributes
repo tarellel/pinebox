@@ -1,0 +1,27 @@
+# See https://git-scm.com/docs/gitattributes for more about git attribute files.
+
+# Mark the database schema as having been generated.
+db/schema.rb linguist-generated
+
+# Mark the yarn lockfile as having been generated.
+yarn.lock linguist-generated
+
+# Mark any vendored files as having been vendored.
+vendor/* linguist-vendored
+
+
+*                             text=auto eol=lf
+*.eot                         -text
+*.gif                         -text
+*.gz                          -text
+*.ico                         -text
+*.jpg                         -text
+*.mp3                         -text
+*.ogg                         -text
+*.png                         -text
+*.ttf                         -text
+*.webm                        -text
+*.woff                        -text
+*.woff2                       -text
+*.yml                         text
+spec/fixtures/requests/**     -text !eol

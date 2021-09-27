@@ -1,0 +1,20 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta content="IE=Edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"
+    = display_meta_tags site: 'Pinebox'
+    = csrf_meta_tags
+    = csp_meta_tag
+    link rel="preload" as="style" href="#{vite_asset_path 'application.css' }"
+    link rel="preload" as="script" href="#{vite_asset_path 'application.js' }"
+    = vite_javascript_tag 'application', data: { turbo_track: :reload }, defer: true
+    = vite_stylesheet_tag 'application', media: 'all', data: { turbo_track: :reload }
+  body.antialiased.flex.flex-col.min-h-screen.font-sans.font-normal.leading-normal.bg-gray-100.text-gray-400#body
+    = render 'shared/navigation'
+    main.w-full.flex-grow.px-5.py-7.bg-gray-100 role="main"
+      = turbo_frame_tag :flash do
+        = flash_messages
+      = yield
+    = render 'shared/footer'

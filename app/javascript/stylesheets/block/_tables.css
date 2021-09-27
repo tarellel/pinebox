@@ -1,0 +1,11 @@
+table.striped-gray {
+  & tbody {
+    & tr {
+      @apply bg-white hover:bg-blue-50 hover:text-gray-500;
+
+      &:nth-child(even) {
+        @apply bg-gray-50 hover:bg-blue-50 hover:text-gray-500;
+      }
+    }
+  }
+}

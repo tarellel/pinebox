@@ -1,0 +1,38 @@
+header.w-full.shadow.bg-gray-50.text-base
+  nav.w-full.mx-auto.px-2.sm:px-6.lg:px-8.bg-gray-800 role="navigation" aria-label="Main" data-controller="navbar"
+    .relative.flex.items-center.justify-between.h-16
+      .absolute.inset-y-0.left-0.flex.items-center.sm:hidden
+        button.inline-flex.items-center.justify-center.p-2.rounded-md.text-gray-400.hover:text-white.hover:bg-gray-700.focus:outline-none.focus:ring-2.focus:ring-inset.focus:ring-white aria-controls="mobile-menu" type="button" title="Toggle mobile menu"
+          span.sr-only Open main menu
+          svg.h-6.w-6.block class="block" alt="Open Mobile Menu" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-navbar-target="closedIcon" data-action="click->navbar#open"
+            path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          svg.h-6.w-6.block class="hidden" alt="Close Mobile Menu" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-navbar-target="openIcon" data-action="click->navbar#close"
+             path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      .flex-1.flex.items-center.justify-center.sm:items-stretch.sm:justify-start
+        .flex-shrink-0.flex.items-center
+          = link_to 'Pinebox', '/', class: 'font-semibold text-xl cursor-pointer hover:underline text-white'
+        .hidden.sm:block.sm:ml-6
+          .flex.space-x-2
+            = link_to 'Home', '/', class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-opacity-90 hover:text-opacity-100 text-sm font-medium cursor-pointer mr-4'
+            = link_to 'Features', '#', class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-opacity-90 hover:text-opacity-100 text-sm font-medium cursor-pointer mr-4'
+            = link_to 'Pricing', '#', class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-opacity-90 hover:text-opacity-100 text-sm font-medium cursor-pointer mr-4'
+      .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0
+        - if user_signed_in? && current_user.admin?
+          = render Navbar::DropdownComponent.new(label: 'Admin', chevron: true) do
+            .py-1 role="none"
+              = render(Dropdown::LinkComponent.new(url: sidekiq_web_path, icon: refresh_icon, text: 'Sidekiq'))
+
+      .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0
+        - if user_signed_in?
+          = render Navbar::DropdownComponent.new(label: 'Options', chevron: true) do
+            .py-1 role="none"
+              = render(Dropdown::LinkComponent.new(url: edit_user_registration_path, icon: settings_icon(right: 2), text: 'Account settings'))
+              = render(Dropdown::LinkComponent.new(url: destroy_user_session_path, method: :delete, icon: signout_icon(right: 2), text: 'Sign out'))
+        - else
+          = link_to 'Login', new_user_session_path, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-opacity-90 hover:text-opacity-100 text-sm font-medium cursor-pointer mr-4'
+    #mobile-menu.sm:hidden.hidden.block data-navbar-target="mobileMenu"
+      .px-2.pt-2.pb-3.space-y-1
+        a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium aria-current="page" href="#" Dashboard
+        a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium href="#" Team
+        a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium href="#" Projects
+        a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium href="#" Calendar

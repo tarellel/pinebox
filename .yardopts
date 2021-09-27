@@ -1,0 +1,21 @@
+--title 'Pinebox'
+--quiet
+--charset UTF-8
+--exclude /config/
+--exclude /docs/
+--exclude /node_modules/
+--exclude /log/
+--exclude /public/
+--exclude /spec/
+--exclude /storage/
+--exclude /tmp/
+-
+CHANGELOG.md
+README.md
+*.md
+
+# https://rubydoc.info/gems/yard/YARD/CLI/Yardoc
+# https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#yardopts-options-file
+# https://github.com/lsegal/yard/blob/main/.yardopts
+# Docs -> https://manpages.debian.org/stretch/yard/yardoc.1
+# https://kapeli.com/cheat_sheets/Yard.docset/Contents/Resources/Documents/index
