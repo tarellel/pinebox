@@ -8,7 +8,7 @@ Rails.application.config.generators do |g|
   g.helper false
   g.form_framework :simple_form
   g.template_engine :slim
-  # g.orm :active_record, primary_key_type: :uuid
+  g.orm :active_record, primary_key_type: :uuid # Set all models to use UUID's as their primary_keys
 
   g.fixture_replacement :factory_bot, dir: 'spec/factories'
   g.integration_tool :rspec
