@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_045404) do
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
+  create_table "friendly_id_slugs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_045404) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", limit: 255, default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
