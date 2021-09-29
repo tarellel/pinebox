@@ -12,6 +12,8 @@
   Role.create!(name: role)
 end
 
-User.create!(email: 'test@test.com', password: 'Pa$$w0rd!', password_confirmation: 'Pa$$w0rd!', name: 'Michael Scott')
+user = User.create!(email: 'test@test.com', password: 'Pa$$w0rd!', password_confirmation: 'Pa$$w0rd!', name: 'Michael Scott')
+user.add_role(:admin)
+
 User.create!(email: 'test2@test.com', password: 'Pa$$w0rd!', password_confirmation: 'Pa$$w0rd!', name: 'Dwight Schrute')
 User.create!(email: 'test_user@test.com', password: 'P4ssW0rd!', password_confirmation: 'P4ssW0rd!', name: 'Jim Halpert')

@@ -33,7 +33,6 @@
 #
 class User < ApplicationRecord
   # == Attributes =====================================
-  # enum role: { superuser: 0, staff: 1, user: 2, visitor: 3 }
 
   # == Concerns =======================================
 
@@ -82,11 +81,11 @@ class User < ApplicationRecord
   #
   # @return [Boolean]
   def staff_member?
-    admin? || staff?
+    @_staff_member ||= defined?(@_staff_member) ? @staff_member : (admin? || staff?)
   end
 
   def user?
-    @_user || has_role?(:user)
+    @_user ||= has_role?(:user)
   end
 
   # If the current_user has the specified role
