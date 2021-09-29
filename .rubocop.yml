@@ -43,6 +43,8 @@ Layout/LineLength:
   AllowURI: true
   Enabled: false
   Max: 120
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
 Metrics/AbcSize:
   Max: 42
 Metrics/BlockLength:

@@ -33,6 +33,7 @@ gem 'devise'                    # Rails based user authentication
 gem 'devise-security'           # Additional security measures for devise
 gem 'pretender'                 # allows superusers to emulate being another user
 gem 'pundit'                    # A slim user authorization library
+gem 'rolify'                    # For managing user roles
 gem 'valid_email2'              # Stronger email validator (Includes RFC, blackist, and whitelist validations)
 
 ##############################

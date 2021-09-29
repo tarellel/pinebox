@@ -33,7 +33,7 @@
 #
 class User < ApplicationRecord
   # == Attributes =====================================
-  enum role: { superuser: 0, staff: 1, user: 2, visitor: 3 }
+  # enum role: { superuser: 0, staff: 1, user: 2, visitor: 3 }
 
   # == Concerns =======================================
 
@@ -49,43 +49,44 @@ class User < ApplicationRecord
   # https://github.com/micke/valid_email2/issues/121
   auto_strip_attributes :first_name, :last_name, squish: true
   has_person_name
+  rolify # For managing user rolws
 
   # == Relationships ==================================
 
   # == Validations ====================================
   # minimum length of 5 to match: a@a.a
   validates :email, presence: true, 'valid_email_2/email': { disposable: false }, length: { minimum: 5, maximum: 255 }, uniqueness: { case_sensitive: false }, allow_nil: false
-  validates :role, presence: true, inclusion: { in: roles.keys }, allow_nil: false
   validates :first_name, :last_name, length: { minimum: 1, maximum: 100 }
 
   # == Scopes =========================================
 
   # == Callbacks ======================================
-  # Before any validations ensure a default role is set
-  before_validation do
-    self.role ||= :user
-  end
+  after_create :assign_default_role
 
   # == ClassMethods ===================================
   # If the current_user has the specified role
   #
   # @return [Boolean]
   def admin?
-    role?(:superuser)
+    @_admin ||= defined?(@_admin) ? @_admin : has_role?(:admin)
   end
 
   # If the current_user has the specified role
   #
   # @return [Boolean]
   def staff?
-    role?(:staff)
+    @_staff ||= defined?(@_staff) ? @_staff : has_role?(:staff)
   end
 
   # If the current_user has a superuser or staff role
   #
   # @return [Boolean]
   def staff_member?
-    role?(:superuser) || role?(:staff)
+    admin? || staff?
+  end
+
+  def user?
+    @_user || has_role?(:user)
   end
 
   # If the current_user has the specified role
@@ -93,8 +94,11 @@ class User < ApplicationRecord
   # @parram role [String, Symbol]
   # @return [Boolean]
   def role?(role)
-    self.role == role.to_s
+    has_role?(role)
   end
 
   # == InstanceMethods ================================
+  def assign_default_role
+    add_role(:user) if roles.blank?
+  end
 end
