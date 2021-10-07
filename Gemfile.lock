@@ -259,6 +259,14 @@ GEM
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     json (2.5.1)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
+    letter_opener_web (1.4.1)
+      actionmailer (>= 3.2)
+      letter_opener (~> 1.0)
+      railties (>= 3.2)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -606,6 +614,8 @@ DEPENDENCIES
   guard-shell
   hiredis
   jbuilder
+  letter_opener
+  letter_opener_web
   listen (>= 3.0.5)
   lograge
   logstop

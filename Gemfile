@@ -113,6 +113,8 @@ group :development do
   gem 'better_errors'             # dev: better error messages
   gem 'binding_of_caller'
   gem 'bullet'
+  gem 'letter_opener'
+  gem 'letter_opener_web'
   gem 'listen', ">= 3.0.5"
   gem 'spring'
   gem 'spring-watcher-listen'

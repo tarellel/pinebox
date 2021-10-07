@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # Require the person hitting this page ot be an application admin
   authenticate :user, -> (user) { user.admin? } do
-    # mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
     mount Sidekiq::Web => '/sidekiq'
   end
 
