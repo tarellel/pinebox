@@ -7,8 +7,8 @@ html lang="en"
     = display_meta_tags site: 'Pinebox'
     = csrf_meta_tags
     = csp_meta_tag
-    link rel="preload" as="style" href="#{vite_asset_path 'application.css' }"
-    link rel="preload" as="script" href="#{vite_asset_path 'application.js' }"
+    link rel="preload" as="style" href="#{vite_asset_path 'application.css'}"
+    link rel="preload" as="script" href="#{vite_asset_path 'application.js'}"
     = vite_javascript_tag 'application', data: { turbo_track: :reload }, defer: true
     = vite_stylesheet_tag 'application', media: 'all', data: { turbo_track: :reload }
   body.antialiased.flex.flex-col.min-h-screen.font-sans.font-normal.leading-normal.bg-gray-100.text-gray-400#body

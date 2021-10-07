@@ -255,11 +255,6 @@
     regenerator-runtime "^0.13.9"
     systemjs "^6.10.2"
 
-"@webpack-cli/serve@^1.5.1":
-  version "1.5.2"
-  resolved "https://registry.npmjs.org/@webpack-cli/serve/-/serve-1.5.2.tgz"
-  integrity sha512-vgJ5OLWadI8aKjDlOH3rb+dYyPd2GTZuQC/Tihjct6F9GpXGZINo3Y/IVuZVTM1eDQB+/AOsjPUWH/WySDaXvw==
-
 acorn-jsx@^5.3.1:
   version "5.3.2"
   resolved "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
