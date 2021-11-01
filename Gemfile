@@ -56,7 +56,7 @@ gem 'meta-tags'                 # Used for adding dynamic titles when switching 
 gem 'name_of_person'
 gem 'oj'                        # For faster json generating and parsing
 gem 'simple_form'               # A DSL to make forms easier to work with
-gem 'pagy', '~> 4.11'           # An extremely fast pagination alternative
+gem 'pagy'                      # An extremely fast pagination alternative
 gem 'ransack'                   # For making sorting and searching of models easy
 
 ##############################
@@ -109,6 +109,7 @@ group :development, :test do
 end
 
 group :development do
+  # gem 'database_consistency', require: false
   gem 'annotate'
   gem 'better_errors'             # dev: better error messages
   gem 'binding_of_caller'
