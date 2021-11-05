@@ -11,6 +11,7 @@ gem 'puma', '~> 5.0'            # Use Puma as the app server
 ### Database
 ##############################
 gem 'pg', '~> 1.2'      # Use postgresql as the database for Active Record
+# gem 'rails-pg-extras' # View application DB stats
 # gem 'rails-erd', group: :development            # Generate an application ERD
 gem 'strong_migrations'
 
