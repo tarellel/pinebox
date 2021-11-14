@@ -32,14 +32,14 @@ export default class extends Controller {
   }
 
   private display(): void {
-    if (this.contentTarget){
+    if (this.hasContentTarget){
       this.setAriaExpanded('true');
       this.contentTarget.classList.remove('hidden');
     }
   }
 
   private hide(): void {
-    if (this.contentTarget){
+    if (this.hasContentTarget){
       this.setAriaExpanded('false');
       this.contentTarget.classList.add('hidden');
     }
