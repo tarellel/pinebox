@@ -15,6 +15,9 @@ gem 'pg', '~> 1.2'      # Use postgresql as the database for Active Record
 # gem 'rails-erd', group: :development            # Generate an application ERD
 gem 'strong_migrations'
 
+# gem 'fx'                # To created versioned triggers and functions similar to migrations
+# gem 'scenic'            # To create and manage views similar to db migrations
+
 ##############################
 ### Assets, Decorators, and Views
 ##############################

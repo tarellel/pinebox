@@ -13,13 +13,16 @@ let environment = {
       autoprefixer: {
         flexbox: 'no-2009'
       },
-      stage: 3
+      stage: 3,
+      features: {
+        "custom-properties": false,
+      },
     }),
     // https://www.npmjs.com/package/cssnano-preset-default
     cssnano({
       "preset": [
         "default",
-        { "discardComments": { "removeAll": true }}
+        { "discardComments": { "removeAll": true } }
       ]
     })
   ]
