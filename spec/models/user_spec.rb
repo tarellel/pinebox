@@ -1,27 +1,26 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
 #
-#  id                     :bigint           not null, primary key
-#  current_sign_in_at     :datetime
-#  current_sign_in_ip     :string(15)
+#  id                     :integer          not null, primary key
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  failed_attempts        :integer          default(0), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default("0"), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(15)
+#  last_sign_in_ip        :string(15)
+#  failed_attempts        :integer          default("0"), not null
+#  unlock_token           :string
+#  locked_at              :datetime
+#  username               :string(70)
+#  role                   :integer
 #  first_name             :string(100)
 #  last_name              :string(100)
-#  last_sign_in_at        :datetime
-#  last_sign_in_ip        :string(15)
-#  locked_at              :datetime
-#  remember_created_at    :datetime
-#  reset_password_sent_at :datetime
-#  reset_password_token   :string
-#  role                   :integer
-#  sign_in_count          :integer          default(0), not null
-#  unlock_token           :string
-#  username               :string(70)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -31,6 +30,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do

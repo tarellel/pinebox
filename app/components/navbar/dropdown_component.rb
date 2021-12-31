@@ -4,7 +4,7 @@
 class Navbar::DropdownComponent < ViewComponent::Base
   delegate :heroicon, to: :helpers
 
-  def initialize(label:, chevron: false)
+  def initialize(label:, chevron: true)
     @label = label
     @chevron = chevron
   end

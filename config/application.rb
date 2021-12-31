@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Pinebox
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.0
 
     # Set the applications timezone
     config.time_zone = 'UTC'
@@ -17,10 +17,13 @@ module Pinebox
     config.active_job.queue_adapter = :sidekiq
     config.cache_storage = :redis_cache_store, { driver: :hiredis, url: ENV.fetch('REDIS_URL'){ 'redis://localhost:6379/0' } }
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
 
     # Allow belongs_to to optional
     config.active_record.belongs_to_required_by_default = false

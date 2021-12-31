@@ -10,9 +10,9 @@ module ApplicationHelper
     flash.delete(:timedout)
     flash.each do |msg_type, message|
       # You don't need to create an empty alert message
-      next if message.blank? || message.to_s.length.zero?
+      next if message.blank? || message&.to_s&.length&.zero?
 
-      concat render(AlertComponent.new(type: msg_type, msg: message))
+      concat render(AlertComponent.new(type: msg_type, message: message))
     end
     nil
   end

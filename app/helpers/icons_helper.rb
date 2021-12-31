@@ -4,7 +4,8 @@
 # https://heroicons.com/
 # https://heroicons.dev/
 module IconsHelper
-  %w[cog logout refresh].each do |hero_method|
+  %w[check_circle cog exclamation exclamation_circle
+     information_circle logout refresh].each do |hero_method|
     # Define outline icon
     #
     # @param color [String] css class for icon color

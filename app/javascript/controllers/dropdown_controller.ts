@@ -6,6 +6,7 @@ import { useClickOutside } from 'stimulus-use';
 export default class extends Controller {
   static targets = ["content"];
   declare contentTarget: Element | null;
+  declare hasContentTarget: boolean;
 
   connect(): void {
     this.hide();
@@ -32,14 +33,14 @@ export default class extends Controller {
   }
 
   private display(): void {
-    if (this.contentTarget){
+    if (this.hasContentTarget){
       this.setAriaExpanded('true');
       this.contentTarget.classList.remove('hidden');
     }
   }
 
   private hide(): void {
-    if (this.contentTarget){
+    if (this.hasContentTarget){
       this.setAriaExpanded('false');
       this.contentTarget.classList.add('hidden');
     }
