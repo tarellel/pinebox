@@ -12,9 +12,5 @@ html lang="en"
     = vite_javascript_tag 'application', data: { turbo_track: :reload }, defer: true
     = vite_stylesheet_tag 'application', media: 'all', data: { turbo_track: :reload }
   body.antialiased.flex.flex-col.min-h-screen.font-sans.font-normal.leading-normal.bg-gray-100.text-gray-400#body
-    = render 'shared/navigation'
     main.w-full.flex-grow.px-5.py-7.bg-gray-100 role="main"
-      = turbo_frame_tag :flash do
-        = flash_messages
       = yield
-    = render 'shared/footer'

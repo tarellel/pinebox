@@ -9,7 +9,7 @@ export default class extends Controller {
   // connect(): void {}
 
   open(): void {
-    if (this.closedIconTarget){
+    if (this.hasClosedIconTarget){
       this.toggleButton(this.closedIconTarget, 'hide');
       this.toggleButton(this.openIconTarget, 'display');
       this.toggleMenu('display');
@@ -17,7 +17,7 @@ export default class extends Controller {
   }
 
   close(): void {
-    if (this.openIconTarget){
+    if (this.hasOpenIconTarget){
       this.toggleButton(this.openIconTarget, 'hide');
       this.toggleButton(this.closedIconTarget, 'display');
       this.toggleMenu('close');
@@ -39,7 +39,7 @@ export default class extends Controller {
   }
 
   private toggleMenu(state: string): void {
-    if (this.mobileMenuTarget){
+    if (this.hasMobileMenuTarget){
       if (state == 'display'){
         this.mobileMenuTarget.classList.remove('hidden');
       } else { // hide it

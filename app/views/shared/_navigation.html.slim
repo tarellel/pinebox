@@ -9,14 +9,14 @@ header.w-full.shadow.bg-gray-50.text-base
           svg.h-6.w-6.block class="hidden" alt="Close Mobile Menu" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-navbar-target="openIcon" data-action="click->navbar#close"
              path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
       .flex-1.flex.items-center.justify-center.sm:items-stretch.sm:justify-start
-        .flex-shrink-0.flex.items-center
+        .flex-shrink-0.flex.items-center translate="no"
           = link_to 'Pinebox', '/', class: 'font-semibold text-xl cursor-pointer hover:underline text-white'
         .hidden.sm:block.sm:ml-6
           .flex.space-x-2
             = link_to 'Home', '/', class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-opacity-90 hover:text-opacity-100 text-sm font-medium cursor-pointer mr-4'
             = link_to 'Features', '#', class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-opacity-90 hover:text-opacity-100 text-sm font-medium cursor-pointer mr-4'
             = link_to 'Pricing', '#', class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-opacity-90 hover:text-opacity-100 text-sm font-medium cursor-pointer mr-4'
-      .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0
+      .hidden.absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0.md:flex
         - if user_signed_in? && current_user.admin?
           = render Navbar::DropdownComponent.new(label: 'Admin', chevron: true) do
             .py-1 role="none"
@@ -32,7 +32,6 @@ header.w-full.shadow.bg-gray-50.text-base
           = link_to 'Login', new_user_session_path, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-opacity-90 hover:text-opacity-100 text-sm font-medium cursor-pointer mr-4'
     #mobile-menu.sm:hidden.hidden.block data-navbar-target="mobileMenu"
       .px-2.pt-2.pb-3.space-y-1
-        a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium aria-current="page" href="#" Dashboard
-        a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium href="#" Team
-        a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium href="#" Projects
-        a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium href="#" Calendar
+        a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium aria-current="page" href="#" Home
+        a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium href="#" Features
+        a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium href="#" Pricing

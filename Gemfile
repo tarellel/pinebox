@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails', '~> 6.1'
-gem 'puma', '~> 5.0'            # Use Puma as the app server
+gem 'rails', '~> 7.0'
+gem 'puma', '>= 5.5'            # Use Puma as the app server
 # gem 'image_processing', '~> 1.2'  # Use Active Storage variant
 
 ##############################
@@ -18,10 +18,12 @@ gem 'strong_migrations'
 ### Assets, Decorators, and Views
 ##############################
 gem 'active_decorator'
+gem 'dry-initializer', github: 'dry-rb/dry-initializer'
+gem 'lookbook'
 gem 'rails_heroicons'
 gem 'sass'
 gem 'slim-rails'
-gem 'turbo-rails'
+gem 'turbo-rails', '~> 1.0'
 gem 'view_component', require: 'view_component/engine' # https://viewcomponent.org/
 gem 'vite_rails'
 
@@ -39,7 +41,8 @@ gem 'valid_email2'              # Stronger email validator (Includes RFC, blacki
 # Background jobs and Redis
 ##############################
 gem 'hiredis'                   # C based adapter for connecting to redis
-gem 'redis', '~> 4.0'
+gem 'redis', '>= 4.5'
+gem 'redis-namespace'           # Used to namespace Redis Cache entries from Workers
 gem 'sidekiq', '>= 6.0'         # For scheduling background jobs
 gem 'sidekiq-failures'          # Shows you a list of failed sidekiq jobs
 gem 'sidekiq-scheduler'         # Lightweight job scheduler (mimicks cron scheduling)
@@ -55,7 +58,7 @@ gem 'meta-tags'                 # Used for adding dynamic titles when switching 
 gem 'name_of_person'
 gem 'oj'                        # For faster json generating and parsing
 gem 'simple_form'               # A DSL to make forms easier to work with
-gem 'pagy', '~> 4.11'           # An extremely fast pagination alternative
+gem 'pagy', '>= 5.5'           # An extremely fast pagination alternative
 gem 'ransack'                   # For making sorting and searching of models easy
 
 ##############################
@@ -93,6 +96,7 @@ group :development, :test do
   # --- Console cleanup and coloring
   gem 'pry', '~> 0.13'
   gem 'pry-byebug', '~> 3.9'
+  gem 'pry-doc'
   gem 'pry-rails'               # pry console output
   gem 'spirit_hands', github: 'dwarburt/spirit_hands' # A combination of pry, awesome_print, hirb, and numerous other console extensions
 
@@ -112,6 +116,8 @@ group :development do
   gem 'better_errors'             # dev: better error messages
   gem 'binding_of_caller'
   gem 'bullet'
+  gem 'letter_opener'
+  gem 'letter_opener_web'
   gem 'listen', ">= 3.0.5"
   gem 'spring'
   gem 'spring-watcher-listen'
@@ -150,7 +156,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers', '>= 3.0'
 end
-
+gem 'unicode-display_width', '1.8'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
